@@ -1,112 +1,140 @@
+/* Reset básico */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "poppins", sans-serif;
+  font-family: "Poppins", sans-serif;
 }
+
 body {
-  background: url("https://picsum.photos/1600/900?random=1");
-  background-size: cover;
-  background-position: center;
+  background: url("https://picsum.photos/1600/900?random=1") no-repeat center center/cover;
   min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.login-container {
-  width: 420px;
-  background: transparent;
+.container {
+  width: 400px;
+  background: rgba(255, 255, 255, 0.1);
   border: 2px solid rgba(255, 255, 255, 0.2);
   backdrop-filter: blur(20px);
-  border-radius: 10px;
+  border-radius: 12px;
   padding: 30px 40px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
 }
 
-h2 {
-  font-size: 35px;
-  text-align: center;
+h1 {
+  font-size: 24px;
   color: #fff;
+  margin-bottom: 20px;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
 }
 
-.input-group {
+.input-container {
   position: relative;
-  width: 100%;
-  height: 50px;
-  margin: 30px 0;
+  margin-bottom: 20px;
 }
 
-.input-group label {
-  display: block;
-  margin-bottom: 5px;
-  color: #fff;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
-}
-
-.input-group input {
+.input-container input {
   width: 100%;
-  height: 100;
-  padding: 10px;
+  padding: 12px 15px;
+  background: transparent;
   border: 2px solid rgba(255, 255, 255, 0.2);
-  box-sizing: border-box;
-  border-radius: 10px;
-  border: none;
-  outline: none;
-}
-.input-group img {
-  position: absolute;
-  right: 10px;
-  top: 80%;
-}
-.remember-me {
-  display: flex;
-  align-items: center;
-  margin-bottom: 10px;
+  border-radius: 8px;
+  font-size: 16px;
   color: #fff;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
 }
 
-.remember-me label {
-  cursor: pointer;
+.input-container input::placeholder {
+  color: #ddd;
 }
 
-button {
-  width: 100%;
-  padding: 10px;
-  background-color: #007bff;
-  color: white;
-  border: none;
-  cursor: pointer;
-  border-radius: 10px;
+.input-container img {
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
 }
 
-button:hover {
-  background-color: #0056b3;
-}
-
-.forgot-password {
-  text-align: center;
-  margin-top: 10px;
-  text-shadow: 2px 2px 2px rgba(243, 245, 238, 0.7);
-}
-
-.forgot-password a {
+/* Alinhamento do "Forgot password?" */
+.input-container a {
+  position: absolute;
+  right: 0;
+  bottom:-40px;
+  color: #fff;
+  font-size: 14px;
   text-decoration: none;
-  color: #007bff;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
 }
 
-.forgot-password a:hover {
+.input-container a:hover {
   text-decoration: underline;
 }
 
-.error-message {
-  color: red;
-  font-size: 0.875em;
+/* 🔹 Correção do alinhamento do "Remember me" */
+.remember-me {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 8px;
+  font-size: 14px;
+  color: #fff;
+  margin-top: 10px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
 }
 
-.success-message {
-  color: green;
-  font-size: 1em;
-  margin-top: 10px;
+.remember-me input {
+  width: 16px;
+  height: 16px;
+}
+.remember-me label {
+  cursor: pointer;
+}
+.remember-me label:hover {
+  text-decoration: underline;
+}
+
+
+/* Botão de login */
+.submit-button {
+  width: 100%;
+  padding: 12px;
+  background: #5100b5;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s;
+  margin-top: 20px;
+}
+
+.submit-button:hover {
+  background: #6109cb;
+}
+
+/* 🔹 Centralização correta do "Register link" */
+.register-link {
+  text-align: center;
+  margin-top: 20px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+.register-link p {
+  color: #fff;
+  font-size: 14px;
+}
+
+.register-link a {
+  color: #fff;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.register-link a:hover {
+  text-decoration: underline;
 }

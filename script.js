@@ -1,65 +1,29 @@
-function showError(message, elementId) {
-    const errorElement = document.getElementById(elementId);
-    errorElement.textContent = message;
-}
+document.addEventListener("DOMContentLoaded", function () {
+    const loginForm = document.getElementById("loginForm");
+    const emailInput = document.getElementById("email");
+    const passwordInput = document.getElementById("password");
 
-// Function to clear error messages
-function clearError(elementId) {
-    const errorElement = document.getElementById(elementId);
-    errorElement.textContent = '';
-}
+    loginForm.addEventListener("submit", function (event) {
+        event.preventDefault();
+        
+        let email = emailInput.value.trim();
+        let password = passwordInput.value.trim();
+        
+        if (!validateEmail(email)) {
+            alert("Please enter a valid email.");
+            return;
+        }
 
-// Function to display success message
-function showSuccess(message) {
-    const successElement = document.getElementById('emailConfirmationMessage');
-    successElement.textContent = message;
-}
+        if (password.length < 6) {
+            alert("Password must be at least 6 characters long.");
+            return;
+        }
 
-// Function to validate the form
-document.getElementById('loginForm').addEventListener('submit', function(e) {
-    e.preventDefault();
+        alert("Login successful!");
+    });
 
-    const email = document.getElementById('email').value;
-    const password = document.getElementById('password').value;
-
-    let isValid = true;
-
-    // Email validation
-    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-    if (!email || !emailRegex.test(email)) {
-        showError('Please enter a valid email address.', 'emailError');
-        isValid = false;
-    } else {
-        clearError('emailError');
+    function validateEmail(email) {
+        let re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return re.test(email);
     }
-
-    // Password validation
-    if (!password) {
-        showError('Password is required.', 'passwordError');
-        isValid = false;
-    } else {
-        clearError('passwordError');
-    }
-
-    if (isValid) {
-        // Simulating registration process
-        // Here, you would normally send data to the backend for storage
-        showSuccess('Email confirmation sent! Please check your inbox.');
-
-        // Example API call to backend (you can uncomment the code below for actual use)
-        /*
-        fetch('/register', {
-            method: 'POST',
-            body: JSON.stringify({ email, password }),
-            headers: { 'Content-Type': 'application/json' }
-        }).then(response => response.json())
-          .then(data => console.log(data))
-          .catch(error => console.error('Error:', error));
-        */
-    }
-});
-
-// Forgot password link
-document.getElementById('forgotPasswordLink').addEventListener('click', function() {
-    alert('Redirecting to password recovery...');
 });
